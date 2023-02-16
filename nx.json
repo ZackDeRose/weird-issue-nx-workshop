@@ -10,6 +10,9 @@
     }
   },
   "targetDefaults": {
+    "deploy": {
+      "dependsOn": ["^build", "build"]
+    },
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
