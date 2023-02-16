@@ -16,7 +16,7 @@
           {{ game.description }}
         </p>
         <span>
-          <span style="font-weight: bold">Rating:</span> {{ game.rating }}
+          <span style="font-weight: bold">Rating:</span> {{ game.rating | formatRating }}
         </span>
       </mat-card-content>
     </mat-card>
