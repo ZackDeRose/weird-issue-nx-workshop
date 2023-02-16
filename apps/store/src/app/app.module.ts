@@ -12,7 +12,18 @@ import { StoreUiSharedModule } from '@bg-hoard/store/ui-shared';
   declarations: [AppComponent, NxWelcomeComponent, FormatRatingPipe],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(
+      [
+        {
+          path: 'game/:id',
+          loadChildren: () =>
+            import('@bg-hoard/store/feature-game-detail').then(
+              (m) => m.StoreFeatureGameDetailModule
+            ),
+        },
+      ],
+      { initialNavigation: 'enabledBlocking' }
+    ),
     MatCardModule,
     StoreUiSharedModule,
   ],
